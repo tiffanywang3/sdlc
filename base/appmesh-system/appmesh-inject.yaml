@@ -1,0 +1,16 @@
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: appmesh-inject
+  namespace: appmesh-system
+spec:
+  releaseName: appmesh-inject
+  chart:
+    repository: https://aws.github.io/eks-charts
+    name: appmesh-inject
+    version:  0.14.1
+  values:
+    mesh:
+      create: true
+      name: "gitopssdlcworkshop"
+      discovery: dns
